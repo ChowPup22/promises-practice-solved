@@ -38,10 +38,24 @@ export const getPromise = (bool) => {
 
 export const handlePromise = async (promise) => {
   // Your code goes here...
-  const onFulfilled = (data) => { return data };
-  const onRejected = () => { return 'Uh Oh' }
-  await promise
-    .then(onFulfilled, onRejected)
+  let toggle;
+  promise
+    .then(
+      (data) => {
+        toggle = true;
+        return data
+      },
+      (rej) => {
+        toggle = false
+        return rej
+      }
+    )
+  await toggle
+  if (toggle) {
+    return promise
+  } else if (!toggle) {
+    return "Uh Oh"
+  }
 };
 
 // === TEST YOURSELF ===

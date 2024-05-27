@@ -16,6 +16,17 @@
 
 export const handlePromise = () => {
   // Your code goes here...
+  const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+      rej('REJECTED')
+    })
+  });
+
+  return (
+    promise.then((data) => data)
+      .catch((err) => console.log(err))
+      .finally(() => console.log('This promise is finished!'))
+  )
 };
 
 // === TEST YOURSELF ===
