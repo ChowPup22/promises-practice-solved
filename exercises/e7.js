@@ -63,7 +63,7 @@ export const handlePromise = async (promise) => {
   return (
     promise.then((res) => res)
       .catch((err) => {
-        if (err.message) {
+        if (err.message.length > 0) {
           return onReject(err)
         } else {
           return console.log(err)
