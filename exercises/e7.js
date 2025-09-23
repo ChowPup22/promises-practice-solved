@@ -41,7 +41,7 @@ export function parsePromised(json) {
 
 export function onReject(err) {
   // Your code goes here...
-  return console.log(err.message)
+  return console.log(err.message);
 }
 
 /**
@@ -66,7 +66,7 @@ export const handlePromise = async (promise) => {
         if (err.message.length > 0) {
           return onReject(err)
         } else {
-          return console.log(err)
+          return console.error(err);
         }
       })
   )
